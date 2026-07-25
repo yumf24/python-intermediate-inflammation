@@ -19,7 +19,6 @@ def main(args):
     if not isinstance(infiles, list):
         infiles = [args.infiles]
 
-
     if args.full_data_analysis:
         analyse_data(os.path.dirname(infiles[0]))
         return
@@ -39,7 +38,6 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='A basic patient inflammation data management system')
-
     parser.add_argument(
         'infiles',
         nargs='+',
@@ -51,5 +49,4 @@ if __name__ == "__main__":
         dest='full_data_analysis')
 
     args = parser.parse_args()
-
     main(args)
