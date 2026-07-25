@@ -95,6 +95,7 @@ def test_daily_min_string():
 def test_max(test, expected):
     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
 
+
 @pytest.mark.parametrize(
     "test, expected",
     [
