@@ -19,7 +19,6 @@ def analyse_data(data_dir):
         raise ValueError(f"No inflammation data CSV files found in path {data_dir}")
     data = map(models.load_csv, data_file_paths)
 
-
     means_by_day = map(models.daily_mean, data)
     means_by_day_matrix = np.stack(list(means_by_day))
 
