@@ -20,6 +20,18 @@ class CSVDataSource():
         return list(data)
 
 
+class JSONDataSource():
+    def __init__(self, data_dir) -> None:
+        self.data_dir = data_dir
+
+    def load_inflamation_data(self):
+        data_file_paths = glob.glob(os.path.join(self.data_dir, 'inflammation*.json'))
+        if len(data_file_paths) == 0:
+            raise ValueError(f"No inflammation data JSON files found in path {self.data_dir}")
+        data = map(models.load_json, data_file_paths)
+        return list(data)
+
+
 def compute_standard_deviation_by_day(data):
     means_by_day = map(models.daily_mean, data)
     means_by_day_matrix = np.stack(list(means_by_day))
