@@ -29,7 +29,7 @@ def test_daily_mean_integers():
 
 
 @pytest.mark.parametrize(
-    "data, expected_standard_deviation",
+"data, expected_standard_deviation",
     [([0, 0, 0], 0.0), ([1.0, 1.0, 1.0], 0), ([0.0, 2.0], 1.0)],
 )
 def test_daily_standard_deviation(data, expected_standard_deviation):
@@ -64,7 +64,7 @@ def test_patient_normalise(test, expected):
 
 def test_daily_max_zeros():
     """Test that max function works for an array of zeros."""
-    test_input = np.array([[0, 0], [0, 0], [0, 0]])
+test_input = np.array([[0, 0], [0, 0], [0, 0]])
     test_result = np.array([0, 0])
 
     # Need to use Numpy testing functions to compare arrays
@@ -74,7 +74,7 @@ def test_daily_max_zeros():
 def test_daily_max_integers():
     """Test that max function works for an array of positive integers."""
 
-    test_input = np.array([[1, 2], [3, 4], [5, 6]])
+test_input = np.array([[1, 2], [3, 4], [5, 6]])
     test_result = np.array([5, 6])
 
     # Need to use Numpy testing functions to compare arrays
@@ -84,7 +84,7 @@ def test_daily_max_integers():
 def test_daily_min_zeros():
     """Test that min function works for an array of zeros."""
 
-    test_input = np.array([[0, 0], [0, 0], [0, 0]])
+test_input = np.array([[0, 0], [0, 0], [0, 0]])
     test_result = np.array([0, 0])
 
     # Need to use Numpy testing functions to compare arrays
@@ -94,7 +94,7 @@ def test_daily_min_zeros():
 def test_daily_min_integers():
     """Test that min function works for an array of positive integers."""
 
-    test_input = np.array([[1, 2], [3, 4], [5, 6]])
+test_input = np.array([[1, 2], [3, 4], [5, 6]])
     test_result = np.array([1, 2])
 
     # Need to use Numpy testing functions to compare arrays
@@ -105,19 +105,18 @@ def test_daily_min_string():
     """Test for TypeError when passing strings"""
 
     with pytest.raises(TypeError):
-        daily_min([["Hello", "there"], ["General", "Kenobi"]])
+daily_min([["Hello", "there"], ["General", "Kenobi"]])
 
 
 @pytest.mark.parametrize(
     "test, expected",
     [
-        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
+([[0, 0], [0, 0], [0, 0]], [0, 0]),
         ([[1, 2], [3, 4], [5, 6]], [5, 6]),
     ],
 )
 def test_max(test, expected):
     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
-
 
 @pytest.mark.parametrize(
     "test, expected",
