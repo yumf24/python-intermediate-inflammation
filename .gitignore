@@ -16,3 +16,5 @@
 
 .venv
 .serena
+dist/
+poetry.lock
